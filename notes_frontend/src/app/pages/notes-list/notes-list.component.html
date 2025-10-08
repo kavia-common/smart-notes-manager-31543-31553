@@ -1,0 +1,38 @@
+<div class="toolbar card">
+  <input class="input" type="text" placeholder="Search notes..." [(ngModel)]="query">
+  <div class="actions">
+    <button class="btn" (click)="createNew()">＋ New Note</button>
+  </div>
+</div>
+
+<div class="empty card" *ngIf="notes().length === 0">
+  <p class="text-muted">
+    <ng-container *ngIf="trashed(); else normal">
+      Trash is empty.
+    </ng-container>
+    <ng-template #normal>
+      No notes yet. Create your first note!
+    </ng-template>
+  </p>
+</div>
+
+<div class="grid">
+  <a class="note card" *ngFor="let note of notes(); trackBy: trackById" [routerLink]="['/notes', note.id]">
+    <div class="note-header">
+      <h3 class="title">{{ note.title || 'Untitled' }}</h3>
+      <button class="star" (click)="$event.preventDefault(); toggleStar(note)" [title]="note.starred ? 'Unstar' : 'Star'">
+        {{ note.starred ? '⭐' : '☆' }}
+      </button>
+    </div>
+    <p class="snippet">{{ note.content || 'No content' }}</p>
+    <div class="meta">
+      <span class="text-muted">Updated {{ note.updatedAt | date:'medium' }}</span>
+      <div class="row-actions">
+        <button class="btn ghost" (click)="$event.preventDefault(); trashed() ? restore(note) : delete(note)">
+          {{ trashed() ? 'Restore' : 'Trash' }}
+        </button>
+        <button class="btn ghost" *ngIf="trashed()" (click)="$event.preventDefault(); delete(note)">Delete</button>
+      </div>
+    </div>
+  </a>
+</div>

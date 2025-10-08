@@ -2,12 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Angular</title>
+  <title>Smart Notes</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .toast-container {
+      position: fixed; right: 16px; bottom: 16px; display: grid; gap: 8px; z-index: 9999;
+    }
+    .toast {
+      padding: 10px 12px; border-radius: 10px; color: #111827; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.12); border: 1px solid #e5e7eb;
+    }
+    .toast.success { border-color: #F59E0B; }
+    .toast.error { border-color: #EF4444; }
+  </style>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <app-root></app-root>
+  <!-- Toast outlet populated by Angular components via templates -->
+  <div id="toast-root" class="toast-container"></div>
 </body>
 </html>

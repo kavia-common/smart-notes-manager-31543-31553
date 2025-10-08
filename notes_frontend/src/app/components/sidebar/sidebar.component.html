@@ -1,0 +1,6 @@
+<div class="sidebar card">
+  <a routerLink="/notes" class="item">📒 All Notes</a>
+  <a routerLink="/notes" [queryParams]="{starred: 1}" class="item">⭐ Starred</a>
+  <a routerLink="/notes" [queryParams]="{trashed: 1}" class="item">🗑️ Trash</a>
+  <a routerLink="/notes/new" class="btn new-btn">＋ New Note</a>
+</div>

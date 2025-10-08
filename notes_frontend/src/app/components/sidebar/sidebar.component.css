@@ -1,0 +1,12 @@
+.sidebar {
+  padding: 14px;
+}
+.item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text);
+  border: 1px solid transparent;
+}
+.item:hover { background: #F3F4F6; }
+.new-btn { width: 100%; margin-top: 10px; justify-content: center; }

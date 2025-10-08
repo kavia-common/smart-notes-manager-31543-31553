@@ -26,6 +26,10 @@ export default [
         it: "readonly",
         expect: "readonly",
         // Browser globals
+        window: "readonly",
+        localStorage: "readonly",
+        setTimeout: "readonly",
+        crypto: "readonly",
         HTMLElement: "readonly",
         // Node.js globals
         process: "readonly",
